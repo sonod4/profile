@@ -61,7 +61,7 @@ function animate() {
 
     // Move the camera
     camera.position.z -= 0.1;
-    if (camera.position.z < -1000) camera.position.z = 1;
+    if (camera.position.z < -700) camera.position.z = 1;
 
     renderer.render(scene, camera);
 }
