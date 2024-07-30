@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriele Fazio</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('menu').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading the menu:', error));
-    });
-  </script>
 </head>
 <body>
 
-<div id="menu"></div>
+<header>
+    <h1>Gabriele Fazio</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="CartanMetrology.html">Bachelor Thesis</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
 
 <canvas id="starfield"></canvas>
