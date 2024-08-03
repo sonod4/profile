@@ -58,7 +58,7 @@ body, html {
 
 .menu {
     position: fixed;
-    top: 200px;
+    top: 160px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
