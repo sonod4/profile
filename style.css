@@ -112,24 +112,20 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 } */
 
+
+
 .menu a, .menu p {
     position: relative;
-    /* Change flex to block so <br> tags work properly */
-    display: block; 
-    
-    /* Remove width: max-content; it prevents wrapping */
-    width: 90%; 
-    max-width: 800px; /* Limits how wide the citation gets */
-    
-    margin: 20px auto; /* Centers the boxes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin: 30px 0;
     text-decoration: none;
     color: #333;
     font-family: Arial, sans-serif;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 15px 25px; /* Slightly more padding for readability */
+    padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-    /* Ensure text aligns left or center inside the box */
-    text-align: left; 
 }
