@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Archive & Academic Materials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['SFMono-Regular', 'Consolas', '"Liberation Mono"', 'Menlo', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+        .star-rating {
+            color: #eab308; /* Amber gold color */
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="max-w-3xl mx-auto px-5 py-10 font-sans text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-950 transition-colors leading-relaxed">
+
+    <!-- Header Section -->
+    <header class="border-b border-slate-200 dark:border-slate-800 pb-6 mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Master Courses Archive</h1>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">A personal collection of useful material for the master courses I attended (and a bit beyond).</p>
+            </div>
+            <div class="text-xs sm:text-sm text-slate-500 font-mono flex items-center gap-3 mt-2 sm:mt-0">
+                <a href="https://sonod4.github.io/profile/" class="text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white underline">← Main Profile</a>
+                <span>/</span>
+                <a href="https://github.com/sonod4" target="_blank" class="text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white underline">GitHub Repository</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Research Notes / Overview Callout Box -->
+    <section class="mb-8 p-4 bg-slate-50 dark:bg-slate-900/60 border-l-4 border-slate-800 dark:border-slate-200 rounded-r border-y border-r border-slate-200 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-2">
+            <h2 class="text-sm font-bold text-slate-900 dark:text-slate-100 font-mono uppercase tracking-wider flex items-center gap-2">
+                <span>❗<strong class="text-amber-500">★</strong> A note on stars evaluation</span>
+            </h2>
+            <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Updated 2026</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-2.5">
+            Most of the following files are study notes I wrote when studying for the various courses. For this reason there are mainly two types, those with handwritten notes, and those written by text (which came later on). Since the formers lead to worse notes, they are labelled with 1 star ★☆☆. The notes written through typing lead to much richer and easier-to-read notes, so they are awarded 2 stars ★★☆. For some courses I also put some effort in writing and clearing up things. Those notes that are better written, also obtain the third star ★★★. Additionally, the LaTeX/scan resources (not written by me) are automatically given 3 stars.<br><br>
+            Also, note how in most of my notes there won't be the final lesson/lessons. Either way I find them useful as they basically offer a transcript of the whole course (up to that point) (especially the 2 and 3 stars).
+        </p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 dark:text-slate-400 font-mono pt-2 border-t border-slate-200/80 dark:border-slate-800">
+            <span class="flex items-center gap-1"><strong class="text-amber-500">★☆☆</strong> Fully handwritten</span>
+            <span class="flex items-center gap-1"><strong class="text-amber-500">★★☆</strong> Comments typewritten</span>
+            <span class="flex items-center gap-1"><strong class="text-amber-500">★★★</strong> Well written notes</span>
+        </div>
+    </section>
+        <section class="mb-8 p-4 bg-slate-50 dark:bg-slate-900/60 border-l-4 border-slate-800 dark:border-slate-200 rounded-r border-y border-r border-slate-200 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-2">
+            <h2 class="text-sm font-bold text-slate-900 dark:text-slate-100 font-mono uppercase tracking-wider flex items-center gap-2">
+                <span>❗🎨 A note on fonts and colors</span>
+            </h2>
+            <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Updated 2026</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-2.5">
+            In the past it has been brought to my attention that my OneNote notes may be hard to read color-wise. The pdfs I provide are with the palette I am used to having. This said, since I already have a code I use to change colors (as OneNote does not allow to export themes natively), you can use it too <a href="./lecture_schemes/pdfConverter.py"> » <b><u>HERE</u></b> « </a>. If you want to modify colors or remove the grid, feel free to use the code I wrote, taking as input the pdf I provided (obviously you have to modify the code, just give it to some llm). 
+        </p>
+    </section>
+
+    <!-- Controls: Search Input & Sorting Dropdown -->
+    <section class="mb-6 space-y-2">
+        <div class="flex flex-col sm:flex-row gap-2">
+            <div class="relative flex-1">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search course names, descriptions or files..." 
+                    class="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:bg-white dark:focus:bg-slate-950 focus:border-slate-500 font-mono transition-colors"
+                    oninput="handleSearch()"
+                >
+            </div>
+            <!-- Sorting Selector -->
+            <select 
+                id="sortSelect" 
+                onchange="handleSort()"
+                class="px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-slate-500 font-mono transition-colors cursor-pointer"
+            >
+                <option value="alpha-asc">Sort: Title (A → Z)</option>
+                <option value="alpha-desc">Sort: Title (Z → A)</option>
+                <option value="stars-desc">Sort: Stars (Highest First)</option>
+                <option value="stars-asc">Sort: Stars (Lowest First)</option>
+            </select>
+        </div>
+        <div class="text-xs text-slate-500 dark:text-slate-400 font-mono flex justify-between items-center px-1">
+            <span id="resultsCount">Showing all courses</span>
+            <button id="resetBtn" onclick="resetSearch()" class="text-slate-600 dark:text-slate-400 hover:underline hidden">Clear search</button>
+        </div>
+    </section>
+
+    <!-- Course Archive Directory -->
+    <main id="courseArchive" class="space-y-4">
+        <!-- Dynamic Course Cards will render here -->
+    </main>
+
+    <!-- Empty State -->
+    <div id="noResults" class="hidden py-12 text-center text-slate-500 border border-dashed border-slate-300 dark:border-slate-800 rounded">
+        <p class="text-sm font-mono">No matching courses or files found.</p>
+        <button onclick="resetSearch()" class="mt-2 text-xs text-slate-700 dark:text-slate-300 underline font-mono">Reset search</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-2 font-mono">
+        <p>Maintained by <a href="https://sonod4.github.io/profile/" class="underline hover:text-slate-800 dark:hover:text-slate-200">sonod4</a></p>
+        <p>Hosted on GitHub Pages</p>
+    </footer>
+
+    <!-- Data & Script -->
+    <script>
+        /**
+         * EASY TO EDIT COURSE DATA
+         * Each course is identified solely by its 'title' and optional description/note.
+         * Rating is an integer from 1 to 5.
+         */
+        const coursesData = [
+            {
+                title: "Coerenza e controllo (Marco Giovanni Genoni)",
+                note: 'Open quantum systems with continuous variables. The course is divided in: Gaussian states, continuously measured states, quantum optomechanics. This is in spirit the sequel to "Sistemi quantistici aperti".',
+                files: [
+                    { name: "Coerenza_e_controllo.pdf", type: "OneNote", size: "61.0 MB", rating: 1, url: "./lecture_schemes/Coerenza_e_controllo.pdf" },
+                ]
+            },
+            // {
+            //     title: "Elettrodinamica (Massimiliano Gaetano Romé)",
+            //     note: "Mandatory course in classical electrodynamics. In the second part of the course it is also considered the (special) relativistic regime with its effects.",
+            //     files: [
+            //         { name: "Elettrodinamica.pdf", type: "Scan", size: "86.1 MB", rating: 3, url: "./lecture_schemes/ElettroD_Rome_Tia.pdf" },
+            //     ]
+            // },
+            {
+                title: "Fondamenti della meccanica quantistica (Andrea Smirne)",
+                note: "What are the structural differences between a classical statistical theory and a quantum one? Which classical concepts are no longer true in quantum settings? How to discern which theories describe reality, and what do this tells us on reality?",
+                files: [
+                    { name: "Fondamenti_della_quantistica.pdf", type: "OneNote", size: "19.6 MB", rating: 3, url: "./lecture_schemes/Fondamenti_della_quantistica.pdf" },
+                ]
+            },
+            {
+                title: "Geometria e gruppi 1 (Alessio Zaccone)",
+                note: "Covers rudiments of differential geometry and group theory.",
+                files: [
+                    { name: "Geogruppi.pdf", type: "OneNote", size: "46.7 MB", rating: 1, url: "./lecture_schemes/Geogruppi.pdf" },
+                ]
+            },
+            {
+                title: "Gravità e superstringhe 1 (Silke Klemm)",
+                note: "Advanced concepts on general relativity (does not contain string theory). Also look <a href='https://randomphysics.com/wp-content/uploads/2023/03/ferrari_gualtieri_general_relativity.pdf'> <u>HERE</u></a>.",
+                files: [
+                    { name: "GSI.pdf", type: "LaTeX", size: "8.05 MB", rating: 3, url: "./lecture_schemes/GSI.pdf" },
+                ]
+            },
+            {
+                title: "Introduction to continuum physics (Giancarlo Maero)",
+                note: "Covers concepts of continuum physics. Refer to <a href='https://plasma.fisica.unimi.it/teaching/continuumphysics/continuum-physics-lecture-notes/'> <u>HERE</u> </a> for the ufficial english complete version.",
+                files: [
+                    { name: "Introduction_to_continuum_physics.pdf", type: "OneNote", size: "51.2 MB", rating: 2, url: "./lecture_schemes/Introduction_to_continuum_physics.pdf" }
+                ]
+            },
+            {
+                title: "Laboratorio di ottica quantistica (Simone Cialdi)",
+                note: "Laboratory of quantum optics. Both theorical lessons and experimental setups/notes are reported.",
+                files: [
+                    { name: "Lab_di_ottica_quantistica.pdf", type: "OneNote", size: "29.1 MB", rating: 2, url: "./lecture_schemes/Lab_di_ottica_quantistica.pdf" },
+                ]
+            },
+            {
+                title: "Deep learning (Stefano Carazza)",
+                note: "Course on deep learning. Explains how they work, what are successful paradigms used, and how to properly develop and implement them.",
+                files: [
+                    { name: "TeoriaDL.pdf", type: "OneNote", size: "10.0 MB", rating: 3, url: "./lecture_schemes/TeoriaDL.pdf" },
+                    { name: "LabDL.pdf", type: "OneNote", size: "3.03 MB", rating: 3, url: "./lecture_schemes/LabDL.pdf" }
+                ]
+            },
+            {
+                title: "Ottica quantistica (Alessandro Ferraro)",
+                note: "Core concepts of quantum optics/continuous variable systems. Matter-radiation interactions and their effects. Interferometry.",
+                files: [
+                    { name: "Ottica_quantistica.pdf", type: "OneNote", size: "38.9 MB", rating: 1, url: "./lecture_schemes/Ottica_quantistica.pdf" },
+                ]
+            },
+            {
+                title: "Quantum walks (Claudia Benedetti)",
+                note: "What are quantum walks, useful applications, multiple walkers effects, chiral quantum walks.",
+                files: [
+                    { name: "Quantum_walks.pdf", type: "OneNote", size: "34.1 MB", rating: 3, url: "./lecture_schemes/Quantum_walks.pdf" }
+                ]
+            },
+            {
+                title: "Sistemi quantistici aperti (Bassano Maria Vacchini)",
+                note: "Open quantum systems as a quantum statistical theory. Open quantum system dynamics. (There's so much in this course...). Also, refer to the official resources provided during the course, they're good.",
+                files: [
+                    { name: "Sistemi_aperti.pdf", type: "OneNote", size: "50.5 MB", rating: 1, url: "./lecture_schemes/Sistemi_aperti.pdf" }
+                ]
+            },
+            {
+                title: "Teoria_dell_informazione (Matteo G. A. Paris)",
+                note: "Mix of information theory concepts: brief concepts of open quantum systems (in finite dimensions), entanglement, EPR/Bell, quantum teleportation, distances, approximated cloning, quantum cryptography and QKD, state discrimination, quantum metrology, quantum speed limit, schumacher's algorithm and holevo bound on information, (and more).",
+                files: [
+                    { name: "Teoria_dell_informazione.pdf", type: "OneNote", size: "35.1 MB", rating: 3, url: "./lecture_schemes/Teoria_dell_informazione.pdf" }
+                ]
+            },
+            {
+                title: "Teorica 1 (Stefano Forte)",
+                note: "An introduction to Quantum Field Theory (QFT).",
+                files: [
+                    { name: "Teorica1.pdf", type: "OneNote", size: "24.9 MB", rating: 3, url: "./lecture_schemes/Teorica1.pdf" }
+                ]
+            }
+        ];
+
+        // Format badges style
+        const badgeStyles = {
+            // OneNote: "bg-red-50 text-red-700 border-red-200 dark:bg-red-950/40 dark:text-red-400 dark:border-red-900/60",
+            // Scan: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-400 dark:border-amber-900/60",
+            // LaTeX: "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-900/60",
+            LaTeX: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/40 dark:text-blue-400 dark:border-blue-900/60",
+            OneNote: "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-950/40 dark:text-purple-400 dark:border-purple-900/60",
+            Scan: "bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
+        };
+
+        let searchQuery = "";
+        let currentSort = "alpha-asc";
+
+        // Helper to output star string (max 5)
+        function renderStars(rating = 3) {
+            const count = Math.min(Math.max(Number(rating) || 0, 1), 3);
+            return '★'.repeat(count) + '☆'.repeat(3 - count);
+        }
+
+        // Get max star rating of a course
+        function getCourseMaxRating(course) {
+            if (!course.files || course.files.length === 0) return 0;
+            return Math.max(...course.files.map(f => f.rating || 0));
+        }
+
+        // Initialize Archive on Load
+        document.addEventListener("DOMContentLoaded", () => {
+            renderArchive();
+        });
+
+        // Search Input Handler
+        function handleSearch() {
+            searchQuery = document.getElementById("searchInput").value.toLowerCase().trim();
+            const resetBtn = document.getElementById("resetBtn");
+            
+            if (searchQuery) {
+                resetBtn.classList.remove("hidden");
+            } else {
+                resetBtn.classList.add("hidden");
+            }
+
+            renderArchive();
+        }
+
+        // Sort Handler
+        function handleSort() {
+            currentSort = document.getElementById("sortSelect").value;
+            renderArchive();
+        }
+
+        // Clear Search
+        function resetSearch() {
+            searchQuery = "";
+            document.getElementById("searchInput").value = "";
+            document.getElementById("resetBtn").classList.add("hidden");
+            renderArchive();
+        }
+
+        // Render function
+        function renderArchive() {
+            const container = document.getElementById("courseArchive");
+            const noResults = document.getElementById("noResults");
+            const resultsCount = document.getElementById("resultsCount");
+
+            // 1. Filter courses
+            let filteredCourses = coursesData.filter(course => {
+                if (!searchQuery) return true;
+                
+                const matchesTitle = course.title.toLowerCase().includes(searchQuery);
+                const matchesNote = course.note ? course.note.toLowerCase().includes(searchQuery) : false;
+                const matchesFiles = course.files.some(f => f.name.toLowerCase().includes(searchQuery));
+
+                return matchesTitle || matchesNote || matchesFiles;
+            });
+
+            // 2. Sort courses
+            filteredCourses.sort((a, b) => {
+                if (currentSort === "alpha-asc" || currentSort === "default") {
+                    return a.title.localeCompare(b.title);
+                } else if (currentSort === "alpha-desc") {
+                    return b.title.localeCompare(a.title);
+                } else if (currentSort === "stars-desc") {
+                    const ratingDiff = getCourseMaxRating(b) - getCourseMaxRating(a);
+                    return ratingDiff !== 0 ? ratingDiff : a.title.localeCompare(b.title);
+                } else if (currentSort === "stars-asc") {
+                    const ratingDiff = getCourseMaxRating(a) - getCourseMaxRating(b);
+                    return ratingDiff !== 0 ? ratingDiff : a.title.localeCompare(b.title);
+                }
+                return 0; // default order
+            });
+
+            // 3. Render
+            if (filteredCourses.length === 0) {
+                container.innerHTML = "";
+                noResults.classList.remove("hidden");
+                resultsCount.textContent = "0 courses found";
+            } else {
+                noResults.classList.add("hidden");
+                container.innerHTML = filteredCourses.map(course => renderCourseCard(course)).join("");
+                resultsCount.textContent = `Showing ${filteredCourses.length} course${filteredCourses.length > 1 ? 's' : ''}`;
+            }
+        }
+
+        // Single Course Card Template
+        function renderCourseCard(course) {
+            return `
+                <div class="p-4 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+                    <!-- Course Title -->
+                    <h3 class="font-semibold text-slate-900 dark:text-slate-100 text-base">${course.title}</h3>
+                    
+                    ${course.note ? `<p class="text-xs text-slate-600 dark:text-slate-400 mt-1 mb-3 leading-relaxed">${course.note}</p>` : '<div class="mb-3"></div>'}
+
+                    <!-- File List with Star Ratings -->
+                    <div class="pt-2 border-t border-slate-100 dark:border-slate-800/80 space-y-1.5">
+                        ${course.files.map(file => `
+                            <div class="flex items-center justify-between text-xs py-1 group">
+                                <div class="flex items-center gap-2 truncate pr-2">
+                                    <!-- Star Rating -->
+                                    <span class="star-rating text-[11px] font-mono flex-shrink-0" title="${file.rating || 3} out of 5 stars">
+                                        ${renderStars(file.rating)}
+                                    </span>
+
+                                    <!-- Format Badge -->
+                                    <span class="font-mono text-[10px] px-1.5 py-0.5 rounded border ${badgeStyles[file.type] || badgeStyles.PDF}">
+                                        ${file.type}
+                                    </span>
+
+                                    <!-- File Title Link -->
+                                    <a href="${file.url}" target="_blank" class="font-mono text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white underline truncate">
+                                        ${file.name}
+                                    </a>
+                                </div>
+                                
+                                <div class="flex items-center gap-3 text-slate-400 dark:text-slate-500 font-mono text-[11px] flex-shrink-0">
+                                    <span>${file.size}</span>
+                                    <a href="${file.url}" download class="text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white hover:underline">
+                                        Download ↓
+                                    </a>
+                                </div>
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
