@@ -26,6 +26,11 @@
             color: #eab308; /* Amber gold color */
             letter-spacing: 1px;
         }
+        .star-rating-4 {
+            color: #38bdf8; /* Bright Cyan/Sky Blue */
+            text-shadow: 0 0 6px rgba(56, 189, 248, 0.75), 0 0 12px rgba(14, 165, 233, 0.5);
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body class="max-w-3xl mx-auto px-5 py-10 font-sans text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-950 transition-colors leading-relaxed">
@@ -54,8 +59,14 @@
             <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Updated 2026</span>
         </div>
         <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-2.5">
-            Most of the following files are study notes I wrote when studying for the various courses. For this reason there are mainly two types, those with handwritten notes, and those written by text (which came later on). Since the formers lead to worse notes, they are labelled with 1 star ★☆☆. The notes written through typing lead to much richer and easier-to-read notes, so they are awarded 2 stars ★★☆. For some courses I also put some effort in writing and clearing up things. Those notes that are better written, also obtain the third star ★★★. Additionally, the LaTeX/scan resources (not written by me) are automatically given 3 stars.<br><br>
-            Also, note how in most of my notes there won't be the final lesson/lessons. Either way I find them useful as they basically offer a transcript of the whole course (up to that point) (especially the 2 and 3 stars).
+            Stars quantify the goodness of the notes:
+            <ul>
+                <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★☆☆</span> Notes mostly written by me (Gabriele) by hand. They are good, but still improvable. </li>
+                <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★★☆</span> Notes with comments, but things are not extensively explained by words, or there are a bunch of things explained not so clearly. </li>
+                <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★★★</span> Very solid notes, with all due clear explanations (may still be uncomplete in some aspects).</li>
+                <li><span class="star-rating-4 text-[15px] font-mono flex-shrink-0">★★★</span> Like the three stars, but they are complete and sometimes add even more stuff to make things even more clear. </li>
+            </ul><br>
+            Note: my (Gabriele) notes often lack the last, or last two lessons. But, the reported material follows the relative star rating. 
         </p>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 dark:text-slate-400 font-mono pt-2 border-t border-slate-200/80 dark:border-slate-800">
             <span class="flex items-center gap-1"><strong class="text-amber-500">★☆☆</strong> Fully handwritten</span>
@@ -135,14 +146,14 @@
                 note: 'Open quantum systems with continuous variables. The course is divided in: Gaussian states, continuously measured states, quantum optomechanics. This is in spirit the sequel to "Sistemi quantistici aperti".',
                 files: [
                     { name: "Coerenza_e_controllo.pdf", type: "OneNote", author:"Gabriele", size: "61.0 MB", rating: 1, url: "./lecture_schemes/Coerenza_e_controllo.pdf" },
-                    { name: "Coerenza_e_controllo_Zano.pdf", type: "LaTeX", author:"Zano", size: "4.51 MB", rating: 3, url: "./lecture_schemes/Coerenza_e_controllo_Zano.pdf" }
+                    { name: "Coerenza_e_controllo_Zano.pdf", type: "LaTeX", author:"Zano", size: "4.51 MB", rating: 4, url: "./lecture_schemes/Coerenza_e_controllo_Zano.pdf" }
                 ]
             },
             {
                 title: "Elettrodinamica (Massimiliano Gaetano Romé)",
                 note: "Mandatory course in classical electrodynamics. In the second part of the course it is also considered the (special) relativistic regime with its effects.",
                 files: [
-                    { name: "Elettrodinamica.pdf", type: "Scan", size: "86.1 MB", rating: 3, url: "./lecture_schemes/ElettroD_Rome_Tia.pdf" },
+                    { name: "Elettrodinamica.pdf", type: "Scan", size: "86.1 MB", rating: 4, url: "./lecture_schemes/ElettroD_Rome_Tia.pdf" },
                 ]
             },
             {
@@ -199,7 +210,7 @@
                 title: "Quantum walks (Claudia Benedetti)",
                 note: "What are quantum walks, useful applications, multiple walkers effects, chiral quantum walks.",
                 files: [
-                    { name: "Quantum_walks.pdf", type: "OneNote", author:"Gabriele", size: "34.1 MB", rating: 3, url: "./lecture_schemes/Quantum_walks.pdf" }
+                    { name: "Quantum_walks.pdf", type: "OneNote", author:"Gabriele", size: "34.1 MB", rating: 4, url: "./lecture_schemes/Quantum_walks.pdf" }
                 ]
             },
             {
@@ -221,7 +232,7 @@
                 title: "Teorica 1 (Stefano Forte)",
                 note: "An introduction to Quantum Field Theory (QFT).",
                 files: [
-                    { name: "Teorica1.pdf", type: "OneNote", author:"Gabriele", size: "24.9 MB", rating: 3, url: "./lecture_schemes/Teorica1.pdf" }
+                    { name: "Teorica1.pdf", type: "OneNote", author:"Gabriele", size: "24.9 MB", rating: 4, url: "./lecture_schemes/Teorica1.pdf" }
                 ]
             },
             {
@@ -264,6 +275,7 @@
 
         // Helper to output star string (max 5)
         function renderStars(rating = 3) {
+            if(rating==4) rating==3;
             const count = Math.min(Math.max(Number(rating) || 0, 1), 3);
             return '★'.repeat(count) + '☆'.repeat(3 - count);
         }
@@ -371,7 +383,7 @@
                             <div class="flex items-center justify-between text-xs py-1 group">
                                 <div class="flex items-center gap-2 truncate pr-2">
                                     <!-- Star Rating -->
-                                    <span class="star-rating text-[11px] font-mono flex-shrink-0" title="${file.rating || 3} out of 5 stars">
+                                    <span class="${file.rating === 4 ? 'star-rating-4' : 'star-rating'} text-[11px] font-mono flex-shrink-0" title="${file.rating || 3} out of 3 stars">
                                         ${renderStars(file.rating)}
                                     </span>
 
