@@ -40,7 +40,7 @@
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Master Courses Archive</h1>
-                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">A personal collection of useful material for the master courses I attended (and a bit beyond).</p>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">A personal collection of useful material for the master courses I attended (and a bit beyond). Official resources are not reported as they belong to the teachers, and most importantly they are retrievable from Ariel.</p>
             </div>
             <div class="text-xs sm:text-sm text-slate-500 font-mono flex items-center gap-3 mt-2 sm:mt-0">
                 <a href="https://sonod4.github.io/profile/" class="text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white underline">← Main Profile</a>
@@ -61,28 +61,23 @@
         <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-2.5">
             Stars quantify the goodness of the notes:
             <ul>
-                <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★☆☆</span> Notes mostly written by me (Gabriele) by hand. They are good, but still improvable. </li>
-                <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★★☆</span> Notes with comments, but things are not extensively explained by words, or there are a bunch of things explained not so clearly. </li>
+                <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★☆☆</span> Notes written by hand with brief explanations. They are good, but still improvable. </li>
+                <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★★☆</span> Notes with comments, but things are not so extensively explained by words, or there are a bunch of things explained not so clearly or missing. </li>
                 <li><span class="star-rating text-[15px] font-mono flex-shrink-0">★★★</span> Very solid notes, with all due clear explanations (may still be uncomplete in some aspects).</li>
                 <li><span class="star-rating-4 text-[15px] font-mono flex-shrink-0">★★★</span> Like the three stars, but they are complete and sometimes add even more stuff to make things even more clear. </li>
             </ul><br>
-            Note: my (Gabriele) notes often lack the last, or last two lessons. But, the reported material follows the relative star rating. 
+            Note: my (Gabriele) notes often lack the last, or last two lessons. But, the reported parts follows the relative star rating. 
         </p>
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 dark:text-slate-400 font-mono pt-2 border-t border-slate-200/80 dark:border-slate-800">
-            <span class="flex items-center gap-1"><strong class="text-amber-500">★☆☆</strong> Fully handwritten</span>
-            <span class="flex items-center gap-1"><strong class="text-amber-500">★★☆</strong> Comments typewritten</span>
-            <span class="flex items-center gap-1"><strong class="text-amber-500">★★★</strong> Well written notes</span>
-        </div>
     </section>
         <section class="mb-8 p-4 bg-slate-50 dark:bg-slate-900/60 border-l-4 border-slate-800 dark:border-slate-200 rounded-r border-y border-r border-slate-200 dark:border-slate-800">
         <div class="flex items-center justify-between mb-2">
             <h2 class="text-sm font-bold text-slate-900 dark:text-slate-100 font-mono uppercase tracking-wider flex items-center gap-2">
-                <span>❗🎨 A note on fonts and colors</span>
+                <span>❗🎨 A note on fonts and colors (OneNote files)</span>
             </h2>
             <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Updated 2026</span>
         </div>
         <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-2.5">
-            In the past it has been brought to my attention that my OneNote notes may be hard to read color-wise. The pdfs I provide are with the palette I am used to having. This said, since I already have a code I use to change colors (as OneNote does not allow to export themes natively), you can use it too <a href="./lecture_schemes/pdfConverter.py"> » <b><u>HERE</u></b> « </a>. If you want to modify colors or remove the grid, feel free to use the code I wrote, taking as input the pdf I provided (obviously you have to modify the code, just give it to some llm). 
+            In the past it has been brought to my attention that my OneNote notes may be hard to read color-wise. The pdfs I provide are with the palette I am used to having. If you want to change the colors or remove the grid, feel free to <b>modify</b> and use the code <a href="./lecture_schemes/pdfConverter.py"> » <b><u>HERE</u></b> « </a>.
         </p>
     </section>
 
@@ -127,8 +122,25 @@
         <button onclick="resetSearch()" class="mt-2 text-xs text-slate-700 dark:text-slate-300 underline font-mono">Reset search</button>
     </div>
 
+    <!-- Callout Section with Image -->
+    <section class="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 text-center">
+        <div class="max-w-md mx-auto p-3.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm">
+            <div class="overflow-hidden rounded border border-slate-200 dark:border-slate-800">
+                <img 
+                    src="next_its_yuor_turn.jpg" 
+                    alt="All Might - Next, it's your turn" 
+                    class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                >
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2.5 font-mono">
+                Have good notes to share? Feel free to contact me gabbofazio@gmail.com.
+            </p>
+        </div>
+    </section>
+
+
     <!-- Footer -->
-    <footer class="mt-16 pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-2 font-mono">
+    <footer class="mt-4 pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-2 font-mono">
         <p>Maintained by <a href="https://sonod4.github.io/profile/" class="underline hover:text-slate-800 dark:hover:text-slate-200">sonod4</a></p>
         <p>Hosted on GitHub Pages</p>
     </footer>
@@ -165,7 +177,7 @@
             },
             {
                 title: "Geometria e gruppi 1 (Alessio Zaccone)",
-                note: "Covers rudiments of differential geometry and group theory.",
+                note: "Covers rudiments of differential geometry and group theory. On <a href='https://minerva.unimi.it/'><u>minerva</u></a> there is also the (newly) published book freely (to students) accessible online.",
                 files: [
                     { name: "Geogruppi.pdf", type: "OneNote", author:"Gabriele", size: "46.7 MB", rating: 1, url: "./lecture_schemes/Geogruppi.pdf" },
                 ]
@@ -193,7 +205,7 @@
             },
             {
                 title: "Deep learning (Stefano Carazza)",
-                note: "Course on deep learning. Explains how they work, what are successful paradigms used, and how to properly develop and implement them.",
+                note: "Course on deep learning. Explains how neural networks work, what are successful paradigms used, and how to properly develop and implement them.",
                 files: [
                     { name: "TeoriaDL.pdf", type: "OneNote", author:"Gabriele", size: "10.0 MB", rating: 3, url: "./lecture_schemes/TeoriaDL.pdf" },
                     { name: "LabDL.pdf", type: "OneNote", author:"Gabriele", size: "3.03 MB", rating: 3, url: "./lecture_schemes/LabDL.pdf" }
@@ -203,7 +215,7 @@
                 title: "Ottica quantistica (Alessandro Ferraro)",
                 note: "Core concepts of quantum optics/continuous variable systems. Matter-radiation interactions and their effects. Interferometry.",
                 files: [
-                    { name: "Ottica_quantistica.pdf", type: "OneNote", author:"Gabriele", size: "38.9 MB", rating: 1, url: "./lecture_schemes/Ottica_quantistica.pdf" },
+                    { name: "Ottica_quantistica.pdf", type: "OneNote", author:"Gabriele", size: "38.9 MB", rating: 2, url: "./lecture_schemes/Ottica_quantistica.pdf" },
                 ]
             },
             {
@@ -240,16 +252,23 @@
                 note: "Solving differentiali equations, and a lot about the heath equation.",
                 files: [
                     { name: "Equazioni_differenziali.pdf", type: "LaTeX", comment: "(old notes! lacks parts!)", size: "2.1 MB", rating: 2, url: "./lecture_schemes/Equazioni_differenziali.pdf" },
-                    { name: "Equazioni_differenziali_marta.pdf", type: "OneNote", author:"Marta", size: "24.9 MB", rating: 2, url: "./lecture_schemes/Equazioni_differenziali_marta.pdf" }
+                    { name: "Equazioni_differenziali_marta.pdf", type: "Samsung Notes", author:"Marta", size: "24.9 MB", rating: 2, url: "./lecture_schemes/Equazioni_differenziali_marta.pdf" }
+                ]
+            },
+            {
+                title: "Machine learning con applicazioni (Carlo Barbieri)",
+                note: "A lot of machine learning topics.",
+                files: [
+                    { name: "Machine_learning.pdf", type: "LaTeX", comment:"(Good, but no longer fully compatible)", size: "10.0 MB", rating: 3, url: "./lecture_schemes/Machine_learning.pdf" }
                 ]
             }
         ];
 
         // Format badges style
         const badgeStyles = {
-            // OneNote: "bg-red-50 text-red-700 border-red-200 dark:bg-red-950/40 dark:text-red-400 dark:border-red-900/60",
-            // Scan: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-400 dark:border-amber-900/60",
-            // LaTeX: "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-900/60",
+            "Samsung Notes": "bg-red-50 text-red-700 border-red-200 dark:bg-red-950/40 dark:text-red-400 dark:border-red-900/60",
+            // "Samsung Notes": "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-400 dark:border-amber-900/60",
+            // "Samsung Notes": "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-900/60",
             LaTeX: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/40 dark:text-blue-400 dark:border-blue-900/60",
             OneNote: "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-950/40 dark:text-purple-400 dark:border-purple-900/60",
             Scan: "bg-slate-100 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
