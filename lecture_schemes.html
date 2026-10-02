@@ -146,7 +146,7 @@
                 note: 'Open quantum systems with continuous variables. The course is divided in: Gaussian states, continuously measured states, quantum optomechanics. This is in spirit the sequel to "Sistemi quantistici aperti".',
                 files: [
                     { name: "Coerenza_e_controllo.pdf", type: "OneNote", author:"Gabriele", size: "61.0 MB", rating: 1, url: "./lecture_schemes/Coerenza_e_controllo.pdf" },
-                    { name: "Coerenza_e_controllo_Zano.pdf", type: "LaTeX", author:"Zano", size: "4.51 MB", rating: 4, url: "./lecture_schemes/Coerenza_e_controllo_Zano.pdf" }
+                    { name: "Coerenza_e_controllo_Zano.pdf", type: "LaTeX", comment: "(watch out for the wrong notation)", author:"Zano", size: "4.51 MB", rating: 4, url: "./lecture_schemes/Coerenza_e_controllo_Zano.pdf" }
                 ]
             },
             {
@@ -225,7 +225,7 @@
                 note: "Mix of information theory concepts: brief concepts of open quantum systems (in finite dimensions), entanglement, EPR/Bell, quantum teleportation, distances, approximated cloning, quantum cryptography and QKD, state discrimination, quantum metrology, quantum speed limit, schumacher's algorithm and holevo bound on information, (and more).",
                 files: [
                     { name: "Teoria_dell_informazione.pdf", type: "OneNote", author:"Gabriele", size: "35.1 MB", rating: 3, url: "./lecture_schemes/Teoria_dell_informazione.pdf" },
-                    { name: "Teoria_dell_Informazione_Quantistica_zano.pdf", author:"Zano", type: "LaTeX", size: "1.83 MB", rating: 3, url: "./lecture_schemes/Teoria_dell_Informazione_Quantistica_zano.pdf" }
+                    { name: "Teoria_dell_Informazione_Quantistica_zano.pdf", author:"Zano", type: "LaTeX", size: "1.83 MB", rating: 4, url: "./lecture_schemes/Teoria_dell_Informazione_Quantistica_zano.pdf" }
                 ]
             },
             {
@@ -239,6 +239,7 @@
                 title: "Metodi matematici della fisica: equazioni differenziali (Silke Klemm)",
                 note: "Solving differentiali equations, and a lot about the heath equation.",
                 files: [
+                    { name: "Equazioni_differenziali.pdf", type: "LaTeX", comment: "(old notes! lacks parts!)", size: "2.1 MB", rating: 2, url: "./lecture_schemes/Equazioni_differenziali.pdf" },
                     { name: "Equazioni_differenziali_marta.pdf", type: "OneNote", author:"Marta", size: "24.9 MB", rating: 2, url: "./lecture_schemes/Equazioni_differenziali_marta.pdf" }
                 ]
             }
@@ -334,7 +335,9 @@
                 // const matchesFiles = course.files.some(f => f.name.toLowerCase().includes(searchQuery));
                 const matchesFiles = course.files.some(f => 
                                                             f.name.toLowerCase().includes(searchQuery) || 
-                                                            (f.author && f.author.toLowerCase().includes(searchQuery))
+                                                            (f.author && f.author.toLowerCase().includes(searchQuery)) ||
+                                                            (f.comment && f.comment.toLowerCase().includes(searchQuery)) ||
+                                                            (f.type && f.type.toLowerCase().includes(searchQuery))
                                                         );
 
                 return matchesTitle || matchesNote || matchesFiles;
@@ -404,6 +407,12 @@
                                     <a href="${file.url}" target="_blank" class="font-mono text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white underline truncate">
                                         ${file.name}
                                     </a>
+
+                                    ${file.comment ? `
+                                        <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 italic">
+                                            ${file.comment}
+                                        </span>
+                                    ` : ''}
                                 </div>
                                 
                                 <div class="flex items-center gap-3 text-slate-400 dark:text-slate-500 font-mono text-[11px] flex-shrink-0">
